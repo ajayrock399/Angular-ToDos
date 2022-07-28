@@ -1,0 +1,17 @@
+<div class="container">
+    <h1 class="text-center">ToDos List with Angular-14 by <i>Ajay</i></h1>
+
+
+    <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+    <div *ngIf="todos.length === 0; else elseBlock">No Todos to display.</div>
+    <ng-template #elseBlock>
+
+        <h3>Your To Dos</h3>
+        <hr>
+        <div *ngFor="let todo of todos; index as i">
+            <app-todo-item [i]="i" [todo]="todo" (todoDelete)="deleteTodo($event)" (todoToggle)=" toggleTodo($event)">
+            </app-todo-item>
+        </div>
+    </ng-template>
+
+</div>
